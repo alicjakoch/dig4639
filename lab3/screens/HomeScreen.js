@@ -29,16 +29,24 @@ export default class HomeScreen extends React.Component {
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.getStartedContainer}>
             <Text style={styles.getStartedText}>Cats are amazing</Text>
+            <Text style={styles.getStartedText}>And Fun...</Text>
             <FlatList
-             data={[{key: 'cat1',image: require('../assets/images/cat1.png')}, {key: 'cat2',image: require('../assets/images/cat2.png')}]}
+             data={[
+               
+               {key: 'Interesting thing about black cats',image: require('../assets/images/HELL2.jpg')}, 
+               {key: 'cat2 Bad things about cats',image: require('../assets/images/cat2.png')},
+               {key: 'cat3 Loving things about cats',image: require('../assets/images/HELL2.jpg')},
+               {key: 'cat4 Cats are just crazy...maybe',image: require('../assets/images/cat2.png')}]}
              keyExtractor={this._keyExtractor}
-              renderItem={({item}) => <TouchableOpacity onPress={(event) => { 
+              renderItem={({item}) => (
+              <TouchableOpacity onPress={(event) => { 
                 console.log(item.key);
-                 this.props.navigation.navigate('Detail', {key:"value"} )        
+                 this.props.navigation.navigate('Detail', {key:item.key, image:item.image  } )        
                 }}>
        
                 <Image source={item.image} style={{width:200,height:200}} />
-              </TouchableOpacity>}
+              </TouchableOpacity>
+              )}
             />
           </View>
         </ScrollView>
@@ -61,7 +69,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 200,
+    
   },
   welcomeContainer: {
     alignItems: 'center',
@@ -91,9 +100,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   getStartedText: {
-    fontSize: 17,
+    fontSize: 44 ,
     color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
+    lineHeight:46,
     textAlign: 'center',
   },
   tabBarInfoContainer: {
@@ -131,8 +140,6 @@ const styles = StyleSheet.create({
   helpLink: {
     paddingVertical: 15,
   },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
+  
+  
 });
