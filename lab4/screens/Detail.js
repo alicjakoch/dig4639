@@ -4,7 +4,9 @@ export default class Detail extends React.Component{
 render ()
 {
    let image = this.props.navigation.getParam ("image");
+ 
     var bill; 
+    
     bill=this.props.navigation.getParam ('key', 0)
     return (
         <View>
@@ -14,8 +16,8 @@ render ()
         style={{flexShrink:1}}/>
         </View>
         </View>
+ 
     )
 }
+   
 }
-
-

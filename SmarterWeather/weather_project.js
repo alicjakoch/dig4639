@@ -25,10 +25,15 @@ import OpenWeatherMap from "./open_weather_map";
 class WeatherProject extends Component {
   constructor(props) {
     super(props);
-    this.state = { forecast: null };
+    this.state = { forecast: null,curTime:0,imageArray:[3,5,7,9],curIndex:0 };
   }
 
-    
+  incrementTime = () => {
+    var newIndex = this.state.curIndex+1;
+    if(newIndex>=this.state.imageArray.length)
+      newIndex=0;
+    this.setState({curIndex:newIndex});
+  }    
   checkMultiPermissions = async() => {
     const { Permissions, FileSystem } = Expo;
     console.log(FileSystem.documentDirectory);
@@ -94,6 +99,7 @@ class WeatherProject extends Component {
       .catch(error => console.error("AsyncStorage error: " + error.message))
       .done();
       this._retrieveData();
+      setInterval(this.incrementTime,1000);
   }
 
   _getForecastForZip = zip => {
@@ -151,7 +157,9 @@ class WeatherProject extends Component {
               />
             </View>
           </View>
-
+          <View style={styles.row}>
+          <Text style={textStyles.mainText}>{this.state.imageArray[this.state.curIndex]}</Text>
+          </View>
           <View style={styles.row}>
             <LocationButton onGetCoords={this._getForecastForCoords} />
           </View>
