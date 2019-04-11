@@ -35,32 +35,16 @@ export default class HomeScreen extends React.Component {
   _gotoScreen = (key) => {
     console.log("Going to " + key);
   }
+
+
   render() {
     const {navigate} = this.props.navigation;
     
     console.log(this.state.markedDates)
-    if(!this.state.agendaView) {
-      return <Calendar 
-    onDayPress={(day) => {
-      this.setState({agendaView:true});
-      this.setState(prevState => {
-        let newDay = prevState.markedDates[day.dateString];
-        if(newDay != undefined)
-          newDay.selected = true
-        else {
-          newDay = {selected:true,color: 'blue'};
-          prevState.markedDates[day.dateString] = newDay;
-        }
-        let newMarkedDates ={};
-        Object.assign(newMarkedDates,prevState.markedDates); 
-        newMarkedDates[day.dateString] = newDay;
-        return {markedDates:newMarkedDates};
-        }
-      );
-      console.log('selected day', day)
-    }}
-    markedDates={this.state.markedDates}/>
-  } else {
+
+  /*
+  // next p
+  else {
     return (<Agenda
     // the list of items that have to be displayed in agenda. If you want to render item as empty date
     // the value of date key kas to be an empty array []. If there exists no value for date key it is
@@ -123,7 +107,8 @@ export default class HomeScreen extends React.Component {
     style={{}}
   />);
   }
-    /*
+  // end p
+    */
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -154,7 +139,7 @@ export default class HomeScreen extends React.Component {
       );
      
       
-      */
+      
   }
 
 }
