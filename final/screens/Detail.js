@@ -1,5 +1,5 @@
 import React from "react"
-import {Text, View, Image} from 'react-native'
+import {Text, View, Image,Button} from 'react-native'
 import {Calendar,CalendarList,Agenda} from 'react-native-calendars';
 
 export default class Detail extends React.Component{
@@ -9,7 +9,11 @@ export default class Detail extends React.Component{
           markedDates:{
     //      '2019-04-12': {selected:true,marked:true,color:"blue"},
           '2019-04-14': {disabled: true, disableTouchEvent: true},
+          '2019-04-21': {disabled: true, disableTouchEvent: true},
+
           '2019-04-15': {marked: true, dotColor: 'red', activeOpacity: 0},
+          '2019-04-22': {marked: true, dotColor: 'red', activeOpacity: 0},
+
         }}
       }
 render ()
@@ -113,7 +117,6 @@ render ()
     style={{}}
   />);
   }
-
 
 
 

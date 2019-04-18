@@ -25,7 +25,7 @@ import OpenWeatherMap from "./open_weather_map";
 class WeatherProject extends Component {
   constructor(props) {
     super(props);
-    this.state = { forecast: null,curTime:0,imageArray:[3,5,7,9],curIndex:0 };
+    this.state = { forecast: null,curTime:0,imageArray:[require('./images/1.jpg'),require('./images/2.jpg'),require('./images/3.jpg'),require('./images/4.jpg'),require('./images/5.jpg')],curIndex:0 };
   }
 
   incrementTime = () => {
@@ -142,7 +142,7 @@ class WeatherProject extends Component {
     }
 
     return (
-      <PhotoBackdrop image={this.state.newPostImage} >
+      <PhotoBackdrop image={this.state.image} >
         <View style={styles.overlay}>
           <View style={styles.row}>
             <Text style={textStyles.mainText}>
@@ -158,7 +158,7 @@ class WeatherProject extends Component {
             </View>
           </View>
           <View style={styles.row}>
-          <Text style={textStyles.mainText}>{this.state.imageArray[this.state.curIndex]}</Text>
+          { <Text style={textStyles.mainText}>{this.state.image[this.state.curIndex]}</Text> }
           </View>
           <View style={styles.row}>
             <LocationButton onGetCoords={this._getForecastForCoords} />
