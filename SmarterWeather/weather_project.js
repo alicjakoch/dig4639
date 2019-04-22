@@ -159,9 +159,6 @@ this.setState ({clock: time})
             <Text style={textStyles.mainText}>{this.state.clock}</Text>
           </View>
           <View style={styles.row}>
-          <Text style={textStyles.mainText}>{this.state.imageArray[this.state.curIndex]}</Text>
-          </View>
-          <View style={styles.row}>
             <LocationButton onGetCoords={this._getForecastForCoords} />
           </View>
           <View style={styles.row}>
