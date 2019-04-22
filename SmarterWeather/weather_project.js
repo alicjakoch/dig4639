@@ -25,6 +25,7 @@ import OpenWeatherMap from "./open_weather_map";
 class WeatherProject extends Component {
   constructor(props) {
     super(props);
+    this.state={forcast: null, clock:" "}
     this.state = { forecast: null,curTime:0,imageArray:[require('./images/1.jpg'),require('./images/2.jpg'),require('./images/3.jpg'),require('./images/4.jpg'),require('./images/5.jpg')],curIndex:0 };
   }
   // imageArray:require{"PhotoBackgroup/flowers.png)"}
@@ -89,7 +90,16 @@ class WeatherProject extends Component {
         }
       }
 //
+retrieveData=async ()=>{
+}
+
+updateClock = ()=>{
+  let time =(new Date()).toLocaleTimeString();
+this.setState ({clock: time})
+}
   componentDidMount() {
+    this.updateClock();
+    setInterval (this.updateClock, 10000);
     AsyncStorage
       .getItem(STORAGE_KEY)
       .then(value => {
@@ -147,6 +157,8 @@ class WeatherProject extends Component {
         <View style={styles.overlay}>
           <View style={styles.row}>
             <Text style={textStyles.mainText}>
+            <Text style={textStyles.mainText}>{this.state.clock}</Text>
+
               Forecast for
             </Text>
 

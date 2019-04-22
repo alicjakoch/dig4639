@@ -11,10 +11,17 @@ export default class Detail extends React.Component{
     //      '2019-04-12': {selected:true,marked:true,color:"blue"},
           '2019-04-14': {disabled: true, disableTouchEvent: true},
           '2019-04-21': {disabled: true, disableTouchEvent: true},
+          '2019-04-07': {disabled: true, disableTouchEvent: true},
+          '2019-04-28': {disabled: true, disableTouchEvent: true},
+          '2019-04-06': {disabled: true, disableTouchEvent: true},
+          '2019-04-13': {disabled: true, disableTouchEvent: true},
+          '2019-04-20': {disabled: true, disableTouchEvent: true},
+          '2019-04-27': {disabled: true, disableTouchEvent: true},
+
 
           '2019-04-15': {marked: true, dotColor: 'red', activeOpacity: 0},
           '2019-04-22': {marked: true, dotColor: 'red', activeOpacity: 0},
-
+          '2019-04-29': {marked: true, dotColor: 'red', activeOpacity: 0},
         }}
       }
 render ()
@@ -112,10 +119,29 @@ render ()
       agendaDayTextColor: 'yellow',
       agendaDayNumColor: 'green',
       agendaTodayColor: 'red',
-      agendaKnobColor: 'blue'
+      agendaKnobColor: 'blue',
+      backgroundColor: '#dee6f2',
+      textSectionTitleColor: '#e8987a',
+      selectedDayBackgroundColor: '#9b2c03',
+      //selectedDayTextColor: '#ffffff',
+      //todayTextColor: '#669999',
+      //dayTextColor: '#2d4150',
+      textDisabledColor: '#d9e1e8',
+      dotColor: '#00adf5',
+      selectedDotColor: '#ffffff',
+      arrowColor: 'orange',
+      monthTextColor: 'blue',
+      //textDayFontFamily: 'monospace',
+      //textMonthFontFamily: 'monospace',
+      //textDayHeaderFontFamily: 'monospace',
+      textMonthFontWeight: 'bold',
+      textDayFontSize: 16,
+      textMonthFontSize: 16,
+      textDayHeaderFontSize: 16
+      
     }}
     // agenda container style
-    style={{}}
+  
   />);
   }
 

@@ -121,7 +121,7 @@ export default class HomeScreen extends React.Component {
                {key: 'You have chosen Alicja as your Barber',image: require('../assets/images/alicja1.jpg')}, 
                //{key: 'cat2 Bad things about cats',image: require('../assets/images/cat2.png')},
                //{key: 'cat3 Loving things about cats',image: require('../assets/images/HELL2.jpg')},
-               {key: 'cat4 Cats are just crazy...maybe',image: require('../assets/images/cat2.png')}]}
+               {key: 'cat4 Cats are just crazy...maybe',image: require('../assets/images/nasaFlag.jpg')}]}
              keyExtractor={this._keyExtractor}
               renderItem={({item}) => (
               <TouchableOpacity onPress={(event) => { 
