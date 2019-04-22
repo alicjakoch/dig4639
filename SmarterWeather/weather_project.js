@@ -27,12 +27,13 @@ class WeatherProject extends Component {
     super(props);
     this.state = { forecast: null,curTime:0,imageArray:[require('./images/1.jpg'),require('./images/2.jpg'),require('./images/3.jpg'),require('./images/4.jpg'),require('./images/5.jpg')],curIndex:0 };
   }
-
+  // imageArray:require{"PhotoBackgroup/flowers.png)"}
   incrementTime = () => {
     var newIndex = this.state.curIndex+1;
+
     if(newIndex>=this.state.imageArray.length)
       newIndex=0;
-    this.setState({curIndex:newIndex});
+    this.setState({curIndex:new Date().getHours});
   }    
   checkMultiPermissions = async() => {
     const { Permissions, FileSystem } = Expo;
@@ -87,7 +88,7 @@ class WeatherProject extends Component {
           // Error retrieving data
         }
       }
-
+//
   componentDidMount() {
     AsyncStorage
       .getItem(STORAGE_KEY)
@@ -129,7 +130,7 @@ class WeatherProject extends Component {
 
   render() {
     let content = null;
-    console.log("Rendered" + this.state.newPostImage);
+    //console.log("Rendered" + this.state.newPostImage);
     if (this.state.forecast !== null) {
       content = (
         <View style={styles.row}>
@@ -158,7 +159,7 @@ class WeatherProject extends Component {
             </View>
           </View>
           <View style={styles.row}>
-          { <Text style={textStyles.mainText}>{this.state.image[this.state.curIndex]}</Text> }
+          <Text style={textStyles.mainText}>{this.state.imageArray[this.state.curIndex]}</Text>
           </View>
           <View style={styles.row}>
             <LocationButton onGetCoords={this._getForecastForCoords} />
@@ -167,7 +168,6 @@ class WeatherProject extends Component {
             <Button onPress={this.checkMultiPermissions} label="Choose Image"></Button>
           </View>
           {content}
-
         </View>
       </PhotoBackdrop>
     );

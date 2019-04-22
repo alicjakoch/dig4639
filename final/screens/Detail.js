@@ -1,12 +1,13 @@
 import React from "react"
 import {Text, View, Image,Button} from 'react-native'
-import {Calendar,CalendarList,Agenda} from 'react-native-calendars';
+import {Calendar,CalendarList,Agenda,} from 'react-native-calendars';
 
 export default class Detail extends React.Component{
     constructor(props) {
         super(props);
         this.state = {agendaView:false,
           markedDates:{
+            
     //      '2019-04-12': {selected:true,marked:true,color:"blue"},
           '2019-04-14': {disabled: true, disableTouchEvent: true},
           '2019-04-21': {disabled: true, disableTouchEvent: true},
@@ -123,5 +124,4 @@ render ()
     
 }
 }
-
 
