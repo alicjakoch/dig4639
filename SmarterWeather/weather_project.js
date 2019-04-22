@@ -29,13 +29,13 @@ class WeatherProject extends Component {
     this.state = { forecast: null,curTime:0,imageArray:[require('./images/1.jpg'),require('./images/2.jpg'),require('./images/3.jpg'),require('./images/4.jpg'),require('./images/5.jpg')],curIndex:0 };
   }
   // imageArray:require{"PhotoBackgroup/flowers.png)"}
-  incrementTime = () => {
+  /*incrementTime = () => {
     var newIndex = this.state.curIndex+1;
 
     if(newIndex>=this.state.imageArray.length)
       newIndex=0;
     this.setState({curIndex:new Date().getHours});
-  }    
+  } */   
   checkMultiPermissions = async() => {
     const { Permissions, FileSystem } = Expo;
     console.log(FileSystem.documentDirectory);
@@ -99,7 +99,7 @@ this.setState ({clock: time})
 }
   componentDidMount() {
     this.updateClock();
-    setInterval (this.updateClock, 10000);
+    setInterval (this.updateClock, 1000);
     AsyncStorage
       .getItem(STORAGE_KEY)
       .then(value => {
@@ -110,7 +110,7 @@ this.setState ({clock: time})
       .catch(error => console.error("AsyncStorage error: " + error.message))
       .done();
       this._retrieveData();
-      setInterval(this.incrementTime,1000);
+//      setInterval(this.incrementTime,1000);
   }
 
   _getForecastForZip = zip => {
@@ -156,19 +156,7 @@ this.setState ({clock: time})
       <PhotoBackdrop image={this.state.image} >
         <View style={styles.overlay}>
           <View style={styles.row}>
-            <Text style={textStyles.mainText}>
             <Text style={textStyles.mainText}>{this.state.clock}</Text>
-
-              Forecast for
-            </Text>
-
-            <View style={styles.zipContainer}>
-              <TextInput
-                style={[textStyles.mainText, styles.zipCode]}
-                onSubmitEditing={this._handleTextChange}
-                underlineColorAndroid="transparent"
-              />
-            </View>
           </View>
           <View style={styles.row}>
           <Text style={textStyles.mainText}>{this.state.imageArray[this.state.curIndex]}</Text>
