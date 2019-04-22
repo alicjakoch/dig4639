@@ -66,6 +66,7 @@ render ()
     // the list of items that have to be displayed in agenda. If you want to render item as empty date
     // the value of date key kas to be an empty array []. If there exists no value for date key it is
     // considered that the date in question is not yet loaded
+    style={{flex:1}}
     selected={'2019-04-11'}
     items={
       {'2019-04-11': [{barber:"Jack",time:"4:00pm"},{barber: "Julie",time:"5:00pm"}],
@@ -89,14 +90,18 @@ render ()
     pastScrollRange={50}
     // Max amount of months allowed to scroll to the future. Default = 50
     futureScrollRange={50}
+
     // specify how each item should be rendered in agenda
-    renderItem={(item, firstItemInDay) => {return (<View ><Text>{item.barber} : {item.time}</Text>
-    <Button title="book" onPress={()=>navigate("Detail",{key:item.barber})}/></View>);}}
+    renderItem={(item, firstItemInDay) => {return (
+    <View style={{flex:1, flexDirection:"row"}}>
+      <Text style={{flex:1}}>{item.barber} : {item.time}</Text>
+      <Button style={{flex:1}} title="book" onPress={()=>navigate("Detail",{key:item.barber})}/>
+    </View>
+    );}}
     // specify how each date should be rendered. day can be undefined if the item is not first in that day.
     renderDay={(day, item) => {
-      
       return (
-      <View >
+      <View style={{flexWrap:"nowrap",flex:1}}>
       {(day!=undefined) ?<Text>{day.dateString}</Text> :null}
       </View>);}}
   // specify how empty date content with no items should be rendered
@@ -137,12 +142,19 @@ render ()
       textMonthFontWeight: 'bold',
       textDayFontSize: 16,
       textMonthFontSize: 16,
-      textDayHeaderFontSize: 16
+      textDayHeaderFontSize: 16,
       
-    }}
     // agenda container style
-  
-  />);
+
+      'stylesheet.agenda.list':{
+        container: {
+          marginTop: 20
+          
+        }
+
+
+      }}}
+      />);
   }
 
 
