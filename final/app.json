@@ -23,7 +23,7 @@
       "**/*"
     ], 
     "android": {
-      "package": "ucf.yourappname"
+      "package": "ucf.KSC Cut"
     },
     "ios": {
       "supportsTablet": true
